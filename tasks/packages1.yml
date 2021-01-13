@@ -1,0 +1,9 @@
+- name: First pass of packages installation
+  dnf:
+    name:
+      - atop
+      - wget
+      - screen
+      - httpd
+      - mariadb
+      - php

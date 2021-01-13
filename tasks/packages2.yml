@@ -1,0 +1,3 @@
+- name: Second pass of packages installation
+  dnf:
+    name:

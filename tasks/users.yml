@@ -1,0 +1,15 @@
+- name: Create Admin user
+  user:
+    name: admin
+    system: yes
+    local: yes
+    password: $6$3x4QOzcRQv8Tlt1T$OUx.rEP/PSk3xzJBC8QP.FpNRQTlTBQlsZYAwDWGt8BMHbnZTivkQd7kHeCdWBZZthIDuu1UlDHcVY6zDfiMo0
+    comment: Administration account
+    group: wheel
+    uid:700
+    expires: -1
+
+- name: Expire the Admin user password to force a reset
+  command: /usr/bin/passwd -expire admin
+  args:
+    warn: no

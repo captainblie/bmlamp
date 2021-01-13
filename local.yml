@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: Clean repo data
+      command: dnf clean all
+      args:
+        warn: no
+    - name: Rebuild the cache
+      command: dnf makecache
+      args:
+        warn: no
+        
+  tasks:
+    - include: tasks/packages1.yml
+    - include: tasks/repo_enable.yml
+    - include: tasks/packages2.yml
+    - include: tasks/users.yml
+    - include: tasks/cron.yml
